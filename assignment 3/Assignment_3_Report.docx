@@ -1,0 +1,42 @@
+Assignment 3 – Clustering Algorithm Self-Study
+Name: Suma Ambati
+Date: July 8, 2025
+Course: BINF5506
+
+1. Introduction
+This assignment explores and compares three unsupervised machine learning clustering algorithms: DBSCAN, k-Means, and Agglomerative Hierarchical Clustering. The objective is to understand their behavior, strengths, and limitations using synthetic datasets (make_moons, make_circles, and make_blobs) from scikit-learn. Clustering is essential in exploratory data analysis, particularly when the data lacks labels.
+
+2. Methodology
+We used scikit-learn to generate synthetic datasets and apply the clustering algorithms:
+
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups together points that are closely packed, marking outliers as noise. It requires two parameters: eps (neighborhood radius) and min_samples (minimum number of points to form a dense region).
+
+k-Means Clustering partitions the data into k clusters by minimizing the intra-cluster variance. It's sensitive to initial centroids and works best with spherical clusters.
+
+Agglomerative Hierarchical Clustering is a bottom-up approach that recursively merges the closest pairs of clusters using a linkage criterion (e.g., Ward linkage).
+
+Each algorithm was applied to the datasets, and resulting clusters were plotted using matplotlib.
+
+3. Results and Plots
+Plots were generated for each algorithm on three datasets:
+
+make_moons: DBSCAN performed best due to its ability to detect non-convex clusters. k-Means failed to separate crescent shapes. Hierarchical clustering did reasonably well but still merged the wrong shapes at times.
+
+make_circles: DBSCAN again outperformed others, successfully identifying concentric rings. k-Means split circular data poorly. Hierarchical clustering showed better performance than k-Means but not as accurate as DBSCAN.
+
+make_blobs: All three algorithms performed well since the data was isotropic and spherical. However, k-Means was fastest and simplest for this dataset.
+
+4. Comparison Table
+Dataset	Algorithm	Performance Summary
+make_moons	DBSCAN	Accurately identifies crescent shapes with noise
+k-Means	Fails to detect non-convex shapes
+Hierarchical	Performs better than k-Means, but less accurate than DBSCAN
+make_circles	DBSCAN	Successfully detects concentric circles
+k-Means	Poor circular separation
+Hierarchical	Better than k-Means but less effective than DBSCAN
+make_blobs	DBSCAN	Works well, slight overfitting in some cases
+k-Means	Excellent; fastest and most accurate for blobs
+Hierarchical	Accurate but computationally more expensive
+
+5. Conclusion
+The comparison highlights the strengths of DBSCAN in handling complex shapes and noise, while k-Means is effective for well-separated spherical clusters. Hierarchical clustering provides a good middle ground but can be computationally expensive. Understanding these differences helps in selecting the right algorithm based on the data characteristics.
